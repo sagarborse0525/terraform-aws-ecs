@@ -1,10 +1,10 @@
 resource "aws_ecs_service" "mongo" {
   name            = "mongodb"
   cluster         = aws_ecs_cluster.foo.id
-  task_definition = aws_ecs_task_definition.mongo.arn
+  task_definition = aws_ecs_task_definition.service.arn
   desired_count   = 1
-  iam_role        = aws_iam_role.foo.arn
-  depends_on      = [aws_iam_role_policy.foo]
+  iam_role        = "arn:aws:iam::108040610828:role/ecsTaskExecutionRole"
+  
 
   ordered_placement_strategy {
     type  = "binpack"
