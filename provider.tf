@@ -5,6 +5,13 @@ terraform {
     
     }
   }
+
+  backend "remote" {
+  organization = "cloudgurukool"
+  workspaces {
+   name = "terraform-aws-ecs"
+   }
+  }
 }
 
 provider "aws" {
